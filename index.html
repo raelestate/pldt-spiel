@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent and Case Details Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        .form-section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff; /* Bootstrap primary blue */
+        }
+        .form-label {
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+        .input-group-text {
+            border-radius: 8px 0 0 8px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+        textarea.form-control {
+            min-height: 250px; /* Increased height to accommodate more details */
+            resize: vertical;
+        }
+        .read-only-input {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container form-container">
+        <form>
+            <h2 class="form-section-title mb-4 text-center">Agent Details</h2>
+
+            <div class="mb-3">
+                <label for="agentName" class="form-label">Agent Name:</label>
+                <input type="text" class="form-control" id="agentName" placeholder="Enter agent's full name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="pldtDomain" class="form-label">PLDT Domain:</label>
+                <input type="text" class="form-control" id="pldtDomain" placeholder="e.g., @pldt.com.ph" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="teamLead" class="form-label">Team Lead:</label>
+                <input type="text" class="form-control" id="teamLead" placeholder="Enter team lead's name" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="lob" class="form-label">LOB:</label>
+                <input type="text" class="form-control read-only-input" id="lob" value="CDT-SOCMED-NT" readonly>
+            </div>
+
+            <h2 class="form-section-title mt-5 mb-4 text-center">CASE & ACCOUNT DETAILS</h2>
+
+            <div class="mb-3">
+                <label for="nameAniDnis" class="form-label">Name/ANI/DNIS:</label>
+                <input type="text" class="form-control" id="nameAniDnis" placeholder="Enter name, ANI, or DNIS" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="salesforceCase" class="form-label">Salesforce Case #:</label>
+                <input type="text" class="form-control" id="salesforceCase" placeholder="Enter Salesforce Case Number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="accountNumber" class="form-label">Account #:</label>
+                <input type="text" class="form-control" id="accountNumber" placeholder="Enter Account Number" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="landlineNumber" class="form-label">Landline #:</label>
+                <input type="text" class="form-control" id="landlineNumber" placeholder="Enter Landline Number" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="plansDropdown" class="form-label">Plans:</label>
+                <select class="form-select" id="plansDropdown" required>
+                    <option value="" selected disabled>Select a plan...</option>
+                    <option value="fiber-unli-all-999">Fiber Unli All Plan 999</option>
+                    <option value="fiber-unli-1299">Fiber Unli Plan 1299</option>
+                    <option value="fiber-unli-all-1399">Fiber Unli All Plan 1399</option>
+                    <option value="fiber-netflix-1599">Fiber Netflix Plan 1599</option>
+                    <option value="fiber-unli-1699">Fiber Unli Plan 1699</option>
+                    <option value="fiber-unli-all-1799">Fiber Unli All 1799</option>
+                    <option value="fiber-unli-2099">Fiber Unli Plan 2099</option>
+                    <option value="fiber-unli-all-2499">Fiber Unli All Plan 2499</option>
+                    <option value="fiber-unli-2699">Fiber Unli Plan 2699</option>
+                    <option value="fiber-unli-all-3199">Fiber Unli All Plan 3199</option>
+                    <option value="other">Other Plan</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="spiels" class="form-label">Spiels:</label>
+                <textarea class="form-control" id="spiels" rows="12" placeholder="Spiels and plan details will appear here based on selected plan..." readonly></textarea>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const plansDropdown = document.getElementById('plansDropdown');
+            const spielsTextarea = document.getElementById('spiels');
+            const agentNameInput = document.getElementById('agentName');
+
+            // Define spiels and plan details for each plan based on the provided table
+            const planSpiels = {
+                "fiber-unli-all-999": {
+                    planName: "Fiber Unli All Plan 999",
+                    speed: "35 Mbps",
+                    inclusions: "Unlimited Broadband\nCignal TV (60 Channels- 53 SD and 7 SD)",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months\nCIGNAL: P50/month for 6 months",
+                    offerSpiel: "Good day! Thank you for calling PLDT. This is [Agent Name]. How may I help you today regarding our Fiber Unli All Plan 999?"
+                },
+                "fiber-unli-1299": {
+                    planName: "Fiber Unli Plan 1299",
+                    speed: "50 Mbps",
+                    inclusions: "Landline",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee",
+                    offerSpiel: "Thanks for checking out our Fiber Unli Plan 1299! It offers a speed of up to 50 Mbps—great for everyday online activities like browsing, email, and streaming videos in standard quality. The plan also comes with a landline for added convenience. Just so you know, this offer is available exclusively for new applications and isn’t applicable for downgrades from an existing plan."
+                },
+                "fiber-unli-all-1399": {
+                    planName: "Fiber Unli All Plan 1399",
+                    speed: "100 Mbps",
+                    inclusions: "Unlimited Broadband\nLandline + Unli Mobile (5 Smart/Sun/TNT)\nCignal Plan (75 Channels | 61 standard, 14 HD)\nFree Set top box (STB) and waived Cignal activation fee",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee\nCIGNAL: Waived installation and activation fee",
+                    offerSpiel: "Thanks for asking about our Fiber Unli All Plan 1399! This amazing bundled offer comes with broadband speeds of up to 100 Mbps—perfect for unlimited browsing, streaming, and online work. It also includes a landline plus Unli Mobile feature exclusive to five (5) Smart and TNT mobile numbers. Best of all, Cignal is bundled in for top-tier entertainment, giving you access to incredible content, all in one awesome bundled plan."
+                },
+                "fiber-netflix-1599": {
+                    planName: "Fiber Netflix Plan 1599",
+                    speed: "150 Mbps",
+                    inclusions: "Unlimited Broadband\nLandline + Unli Mobile (5 Smart/Sun/TNT)\nNETFLIX Basic\nUnlimited ad-free movies, TV shows, and mobile games\nWatch on one (1) supported device at a time\nWatch in 720p (HD)\nDownload on one (1) supported device at a time",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee",
+                    offerSpiel: `We’re excited to share our newest offering—Fiber Netflix Plan 1599! Enjoy blazing-fast speeds of up to 150 Mbps with unlimited broadband, perfect for streaming and browsing. The plan includes a landline and our Unli Mobile feature, exclusive to five (5) Smart and TNT mobile numbers. And here’s the highlight: a Netflix Basic Plan is bundled in, so you can dive straight into your favorite shows and movies with your high-speed PLDT Fiber connection!
+
+Netflix Basic Plan Inclusions:
+Unlimited ad-free movies, TV shows, and mobile games
+Watch on one (1) supported device at a time
+Watch in 720p (HD)
+Download on one (1) supported device at a time`
+                },
+                "fiber-unli-1699": {
+                    planName: "Fiber Unli Plan 1699",
+                    speed: "300 Mbps",
+                    inclusions: "Landline + Enhanced Unli Famcalls (5 Smart/Sun/TNT)",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee",
+                    offerSpiel: "Thanks for checking out our Fiber Unli Plan 1699! You’ll get up to 300 Mbps speed—great for heavy browsing, video calls, and SD streaming on up to three devices. It also comes with a landline and Unli Mobile feature exclusive to five (5) Smart and TNT mobile numbers, so it’s packed with everything you need for a smooth and connected experience."
+                },
+                "fiber-unli-all-1799": {
+                    planName: "Fiber Unli All 1799",
+                    speed: "300 Mbps",
+                    inclusions: "Unlimited Broadband\nLandline + Unli Mobile (5 Smart/Sun/TNT)\nCignal Plan (75 Channels | 61 standard, 14 HD)\nFree Set top box (STB) and waived Cignal activation fee",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee\nCIGNAL: Waived installation and activation fee",
+                    offerSpiel: "Thanks for checking out Fiber Unli All Plan 1799! It’s a complete bundle that gives you 300 Mbps unlimited broadband—perfect for work, streaming, and staying connected. The plan comes with a landline, Unli Mobile feature exclusive to five (5) Smart and TNT mobile numbers, and top-tier entertainment through Cignal. It’s everything you need in one awesome bundled plan."
+                },
+                "fiber-unli-2099": {
+                    planName: "Fiber Unli Plan 2099",
+                    speed: "500 Mbps",
+                    inclusions: "Landline + Enhanced Unli Famcalls (5 Smart/Sun/TNT)",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee",
+                    offerSpiel: "Thanks for checking out Fiber Unli Plan 2099! This powerhouse plan delivers speed of up to 500 Mbps, making it perfect for HD streaming, large file transfers, and smooth online gaming. It also includes a landline and our Unli Mobile feature, which allows unlimited calls to five Smart or TNT mobile numbers—so staying connected is seamless at home and on the go."
+                },
+                "fiber-unli-all-2499": {
+                    planName: "Fiber Unli All Plan 2499",
+                    speed: "500 Mbps",
+                    inclusions: "Unlimited Broadband\nLandline + Unli Mobile (5 Smart/Sun/TNT)\nNETFLIX Standard\nUnlimited ad-free movies, TV shows, and mobile games\nWatch on two (2) supported devices at a time\nWatch in 1080p (Full HD)\nOption to add one (1) extra member who doesn't live with you\nDownload on two (2) supported devices at a time",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee",
+                    offerSpiel: `Thanks for your interest in the Fiber Unli All Plan 2499! It offers up to 500 Mbps unlimited broadband—perfect for smooth streaming, big downloads, and all-day connectivity. You’ll also get a landline, Unli Mobile feature exclusive to five (5) Smart and TNT mobile numbers, plus bundled subscriptions to Cignal and Netflix Standard, so you can enjoy premium entertainment right from your home with your high-speed PLDT Fiber broadband.
+
+Netflix Standard Plan Inclusions
+Unlimited ad-free movies, TV shows, and mobile games
+Watch on two (2) supported devices at a time
+Watch in 1080p (Full HD)
+Option to add one (1) extra member who doesn't live with you
+Download on two (2) supported devices at a time`
+                },
+                "fiber-unli-2699": {
+                    planName: "Fiber Unli Plan 2699",
+                    speed: "700 Mbps",
+                    inclusions: "Landline + Enhanced Unli Famcalls (5 Smart/Sun/TNT)",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee",
+                    offerSpiel: "Thanks for your interest in Fiber Unli Plan 2699! This top-tier plan delivers a speeds of up to 700 Mbps, ideal for Ultra HD streaming and seamless online gaming across multiple devices. It also includes a landline and Unli Mobile feature exclusive to five (5) Smart and TNT mobile numbers., giving you unbeatable connectivity."
+                },
+                "fiber-unli-all-3199": {
+                    planName: "Fiber Unli All Plan 3199",
+                    speed: "700 Mbps",
+                    inclusions: "Unlimited Broadband\nLandline + Unli Mobile (5 Smart/Sun/TNT)\nNETFLIX Standard\nUnlimited ad-free movies, TV shows, and mobile games\nWatch on two (2) supported devices at a time\nWatch in 1080p (Full HD)\nOption to add one (1) extra member who doesn't live with you\nDownload on two (2) supported devices at a time\nCignal Plan (75 Channels | 61 standard, 14 HD)\nStream TV",
+                    lockInPeriod: "36 months",
+                    fees: "FIBER: P100/month for 36 months or P3,600 one-time fee\nCIGNAL: Waived installation and activation fee",
+                    offerSpiel: `Thanks for your interest in our Fiber Unli All Plan 3199—PLDT’s most powerful and complete bundle yet! You’ll enjoy lightning-fast 700 Mbps unlimited broadband, a landline, and Unli Mobile calls to five Smart or TNT mobile numbers. Plus, it comes with subscriptions to Netflix Standard and Cignal, along with a Stream TV device. This plan will give you seamless 4K streaming, instant downloads, ultra-smooth gaming, and smart home connectivity—all in one unbeatable package!`
+                },
+                "other": {
+                    planName: "Other Plan",
+                    speed: "N/A",
+                    inclusions: "N/A",
+                    lockInPeriod: "N/A",
+                    fees: "N/A",
+                    offerSpiel: "Please provide specific details in the spiels section for 'Other Plan'."
+                }
+            };
+
+            // Function to update the spiels textarea
+            function updateSpiels() {
+                const selectedPlanKey = plansDropdown.value;
+                const agentName = agentNameInput.value.trim(); // Get agent name and trim whitespace
+                const planData = planSpiels[selectedPlanKey];
+
+                if (planData) {
+                    let fullSpiel = `Plan: ${planData.planName}
+Speed: ${planData.speed}
+Inclusions: ${planData.inclusions}
+Lock-in Period: ${planData.lockInPeriod}
+Installation and Activation Fees: ${planData.fees}
+
+Offer Spiel: ${planData.offerSpiel.replace(/\[Agent Name\]/g, agentName)}`;
+
+                    spielsTextarea.value = fullSpiel;
+                    // Make the spiels textarea editable when a plan is selected, except for 'Other Plan'
+                    if (selectedPlanKey !== "" && selectedPlanKey !== "other") {
+                        spielsTextarea.removeAttribute('readonly');
+                    } else {
+                        spielsTextarea.setAttribute('readonly', true);
+                    }
+                } else {
+                    spielsTextarea.value = '';
+                    spielsTextarea.setAttribute('readonly', true);
+                }
+            }
+
+            // Add event listener to the plans dropdown
+            plansDropdown.addEventListener('change', updateSpiels);
+
+            // Add event listener to the agent name input for real-time updates
+            agentNameInput.addEventListener('input', updateSpiels);
+
+            // Initially set spiels textarea to readonly and clear its content
+            spielsTextarea.value = '';
+            spielsTextarea.setAttribute('readonly', true);
+        });
+    </script>
+</body>
+</html>
